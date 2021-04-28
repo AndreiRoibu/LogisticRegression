@@ -4,7 +4,7 @@ import os
 
 # This allows scripts from other folders to import this file
 directory_path = os.path.abspath(os.path.dirname(os.path.realpath(__file__)))
-directory_path = directory_path.replace('LogisticRegression/utils', '')
+directory_path = directory_path.replace('LogisticRegression/e_commerce_example', '')
 
 def get_data():
     df = pd.read_csv(directory_path + 'large_files/ecommerce_data.csv')

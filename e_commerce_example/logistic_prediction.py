@@ -1,5 +1,5 @@
 import numpy as np
-from utils.e_commerce_preprocessing import get_binary_data
+from e_commerce_example.e_commerce_preprocessing import get_binary_data
 from linear_classification.basic_logistic_unit import sigmoid
 
 def forward(X, W, b):
