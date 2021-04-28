@@ -1,5 +1,9 @@
 import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
 from linear_classification.basic_logistic_unit import sigmoid
+
+sns.set()
 
 def cross_entropy(y, y_hat):
     E = 0
@@ -34,3 +38,10 @@ if __name__ == '__main__':
     w_closed_form = np.array([0, 4, 4])
     y_hat_closed_form = sigmoid(X.dot(w_closed_form))
     print("Cross Entropy (closed form):", cross_entropy(y, y_hat_closed_form))
+
+    plt.figure()
+    plt.scatter(X[:,1], X[:,2], c=y, s=100, alpha=0.5)
+    x_axis = np.linspace(-6, 6, 100)
+    y_axis = -x_axis
+    plt.plot(x_axis, y_axis, '--r')
+    plt.show()
