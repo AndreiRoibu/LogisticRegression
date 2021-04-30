@@ -3,9 +3,6 @@ import matplotlib.pyplot as plt
 from numpy.random import randn
 import seaborn as sns
 sns.set()
-
-from linear_classification.basic_logistic_unit import sigmoid
-from e_commerce_example.logistic_training import cross_entropy
 from practical_issues.donut_problem import gradient_descent_l2_donut_problem as gradient_descent_l2_XOR_problem
 
 if __name__ == '__main__':
