@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.utils import shuffle
 import os
 
-def get_data(number_validation=1000):
+def get_data(number_validation=1000, balance_class_one = True):
     X = []
     y = []
     first = True
@@ -28,6 +28,14 @@ def get_data(number_validation=1000):
     X, y = shuffle(X, y)
     X_train, y_train = X[:-number_validation], y[:-number_validation]
     X_validation, y_validation = X[-number_validation:], y[-number_validation:]
+
+    # As the classes are unbalanced, we lenghten class one by repeating it 9 times
+    if balance_class_one == True:
+        X0, y0 = X_train[y_train!=1, :], y_train[y_train != 1]
+        X1 = X_train[y_train==1, :]
+        X1 = np.repeat(X1, 9, axis=0)
+        X_train = np.vstack([X0, X1])
+        y_train = np.concatenate((y0, [1]*len(X1)))
 
     return X_train, y_train, X_validation, y_validation
         
